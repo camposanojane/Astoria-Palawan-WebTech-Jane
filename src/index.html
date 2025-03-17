@@ -3,37 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <link href="/dist/output.css" rel="stylesheet">
+
   <title>Astoria Palawan</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
 </head>
 <body class="bg-gray-100">
-    <header class="font-bold">
-        <nav class="flex justify-between items-center px-8 py-3 text-lg text-emerald-800 bg-zinc-300 bg-opacity-40 max-md:px-5">
+    <header>
+        <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-3 text-lg text-emerald-800 bg-zinc-300 bg-opacity-40 backdrop-blur-md">
             <img src="assets/images/logo.webp" alt="Adtoria_Logo" class="rounded-full w-14 h-14">
-            <div class="flex gap-3 text-sm">
-                <a href="/src/index.html" class="hover:text-white">HOME</a>
-                <a href="/src/accommodation.html" class="hover:text-white">ACCOMMODATIONS</a>
-                <a href="/src/amenities.html" class="hover:text-white">AMENITIES</a>
-                <a href="/src/book.html" class="hover:text-white">BOOK</a>
-                <a href="/src/contactUs.html" class="hover:text-white">CONTACT US</a>
+        
+            
+            <button id="menu-btn" class="md:hidden text-emerald-800 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        
+           
+            <div id="menu" class="hidden md:flex flex-col md:flex-row gap-3 text-sm absolute md:static top-full left-0 w-full md:w-auto bg-zinc-300 bg-opacity-90 md:bg-opacity-0 p-5 md:p-0 items-center">
+                <a href="/src/index.html" class="font-bold hover:text-white transition duration-300">HOME</a>
+                <a href="/src/accommodation.html" class="font-bold hover:text-white transition duration-300">ACCOMMODATIONS</a>
+                <a href="/src/amenities.html" class="font-bold hover:text-white transition duration-300">AMENITIES</a>
+                <a href="/src/book.html" class="font-bold hover:text-white transition duration-300">BOOK</a>
+                <a href="/src/contactUs.html" class="font-bold hover:text-white transition duration-300">CONTACT US</a>
             </div>
         </nav>
 
-        <div class="relative flex items-center w-full min-h-[60vh] max-md:min-h-[50vh]">
+      
+        <div class="relative flex items-center w-full min-h-[60vh] max-md:min-h-[50vh] mt-[72px]">
             <img src="assets/images/Home.webp" alt="Home" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute top-2/4 left-2/4 px-5 w-full text-center -translate-x-2/4 -translate-y-2/4">
                 <h1 class="text-6xl font-extrabold leading-tight text-amber-50 max-lg:text-5xl max-md:text-4xl max-sm:text-3xl">
                     Discover The Key <br /> Attributes Of Astoria Palawan
                 </h1>
                 <div class="mt-10">
-                    <button  s class="px-8 py-3 text-2xl font-bold text-white bg-emerald-800 rounded hover:bg-emerald-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition duration-300">
+                    <button class="px-8 py-3 text-2xl font-bold text-white bg-emerald-800 rounded hover:bg-emerald-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition duration-300">
                         BOOK NOW
                     </button>
                 </div>
             </div>
         </div>
     </header>
+
+    
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+    
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 
     <main class="flex justify-center items-center py-8">
         <form class="flex flex-wrap gap-4 justify-center items-center p-4 bg-teal-500 rounded-lg shadow-lg w-full max-w-[800px]">
@@ -80,37 +101,96 @@
             <div class="relative flex flex-col justify-center px-12 py-10 text-white min-h-[350px] font-semibold max-md:px-6 max-md:py-8 overflow-hidden group">
                 <img src="assets/images/the alcove.webp" alt="The Alcove Room" class="absolute inset-0 object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-105 cursor-pointer">
                 
-                <div class="absolute bottom-4 left-4 max-w-xs p-4 bg-white/50 backdrop-blur-sm rounded-lg">
-                    <h2 class="text-2xl font-bold text-teal-500 max-sm:text-xl hover:text-white">THE ALCOVE ROOM</h2>
-                    <p class="mt-2 text-lg text-teal-500 max-sm:text-base hover:text-white">Find rest and relaxation in our annex rooms.</p>
+                <div class="absolute bottom-4 left-4 max-w-xs md:max-w-sm sm:max-w-[60%] p-3 md:p-2 sm:p-1 bg-white/40 backdrop-blur-sm rounded-lg sm:bottom-2 sm:left-2">
+                    <h2 class="text-xl md:text-lg sm:text-sm font-bold text-teal-500 hover:text-white">
+                        THE ALCOVE ROOM
+                    </h2>
+                    <p class="mt-2 text-base md:text-sm sm:text-xs text-teal-500 hover:text-white">
+                        Find rest and relaxation in our annex rooms.
+                    </p>
                 </div>
-                
             </div>
         </article>
+        
         
         <article class="w-1/2 max-md:w-full">
             <div class="relative flex flex-col justify-center px-12 py-10 text-white min-h-[350px] font-semibold max-md:px-6 max-md:py-8 overflow-hidden group">
                 <img src="assets/images/the nest.webp" alt="The Nest Room" class="absolute inset-0 object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-105 cursor-pointer">
                 
-                <div class="absolute bottom-4 left-4 max-w-xs p-4 bg-white/50 backdrop-blur-sm rounded-lg">
-                    <h2 class="text-2xl font-bold text-teal-500 max-sm:text-xl hover:text-white">THE NEST ROOM</h2>
-                    <p class="mt-2 text-lg text-teal-500 max-sm:text-base hover:text-white">Find rest and relaxation in our annex rooms.</p>
+                <div class="absolute bottom-4 left-4 max-w-xs md:max-w-sm sm:max-w-[60%] p-3 md:p-2 sm:p-1 bg-white/40 backdrop-blur-sm rounded-lg sm:bottom-2 sm:left-2">
+                    <h2 class="text-xl md:text-lg sm:text-sm font-bold text-teal-500 hover:text-white">
+                        THE NEST ROOM
+                    </h2>
+                    <p class="mt-2 text-base md:text-sm sm:text-xs text-teal-500 hover:text-white">
+                        Find rest and relaxation in our annex rooms.
+                    </p>
                 </div>
             </div>
         </article>
+        
     </section>
     <br>
-    <section class="relative w-full h-[500px] max-md:h-auto overflow-hidden group">
-        <img src="assets/images/Halo Dome.webp" 
-             alt="Halo Dome" 
-             class="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110">
+    <section class="relative w-full h-[500px] md:h-[400px] sm:h-[300px] overflow-hidden">
+     
+        <div id="slider" class="relative flex w-full h-full transition-transform duration-[1000ms] ease-in-out">
+            <img src="assets/images/Halo Dome.webp" alt="Halo Dome" class="slide object-cover w-full h-full absolute inset-0 opacity-100 transition-opacity duration-[1000ms]">
+            <img src="assets/images/halo dome2.webp" alt="Second Image" class="slide object-cover w-full h-full absolute inset-0 opacity-0 transition-opacity duration-[1000ms]">
+            <img src="assets/images/halo dome3.webp" alt="Third Image" class="slide object-cover w-full h-full absolute inset-0 opacity-0 transition-opacity duration-[1000ms]">
+        </div>
+    
+      
+        <div class="flex justify-between items-center w-full mt-4 px-6 sm:px-2">
+            <button id="prev" class="bg-black/50 text-white p-4 md:p-3 rounded-full hover:bg-black sm:p-2">
+                &#10094;
+            </button>
+            <button id="next" class="bg-black/50 text-white p-4 md:p-3 rounded-full hover:bg-black sm:p-2">
+                &#10095;
+            </button>
+        </div>
+    
+   
+        <article class="absolute bottom-4 left-4 max-w-xs md:max-w-md lg:max-w-lg p-4 md:p-3 sm:p-2 bg-white/50 backdrop-blur-sm rounded-lg sm:max-w-full sm:bottom-2 sm:left-2">
+            <h1 class="text-2xl md:text-xl sm:text-lg font-bold text-black hover:text-white">
+                THE HALO DOME
+            </h1>
+            <p class="mt-2 text-lg md:text-base sm:text-sm text-black hover:text-white">
+                Looking to unwind with your favorite cocktail? Halo Dome is the perfect spot.
+            </p>
+        </article>
         
-                <article class="absolute bottom-4 left-4 max-w-xs p-4 bg-white/50 backdrop-blur-sm rounded-lg">
-                    <h1 class="text-2xl font-bold text-black-500 max-sm:text-xl hover:text-white">THE HALO DOME</h1>
-                    <p class="mt-2 text-lg text-black-500 max-sm:text-base hover:text-white">Looking to unwind with your favorite cocktail? Halo Dome is the perfect spot.</p>
-                </article>
     </section>
-
+    
+  
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll(".slide");
+        const totalSlides = slides.length;
+    
+        function showSlide(i) {
+            slides.forEach((slide, idx) => {
+                slide.style.opacity = idx === i ? "1" : "0";
+            });
+            index = i;
+        }
+    
+        document.getElementById("prev").addEventListener("click", () => {
+            index = (index - 1 + totalSlides) % totalSlides;
+            showSlide(index);
+        });
+    
+        document.getElementById("next").addEventListener("click", () => {
+            index = (index + 1) % totalSlides;
+            showSlide(index);
+        });
+    
+        setInterval(() => {
+            index = (index + 1) % totalSlides;
+            showSlide(index);
+        }, 5000); // Auto-slide every 5 seconds
+    
+        showSlide(index); // Initialize first slide
+    </script>
+    
     <section class="flex items-center gap-8 px-10 py-12 max-w-[1350px] mx-auto max-md:flex-col">
         <article class="flex flex-col gap-6 px-12 py-14 bg-red-500 w-[500px] h-[450px] text-white max-md:w-full max-md:h-auto">
           <h1 class="text-5xl font-extrabold text-teal-500 max-md:text-4xl">KAYAKING</h1>
